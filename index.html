@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist do Anfitrião | Praia Digital</title>
+<meta name="description" content="Checklist interativo de locação de temporada: prepare seu imóvel, anúncio e operação com progresso salvo automaticamente. Satélite de praia.digital.">
+<style>
+body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#f8fafc;color:#0f172a;line-height:1.6}
+.hero{background:linear-gradient(135deg,#4a1d96,#7c3aed);color:#fff;padding:50px 20px;text-align:center}
+.container{max-width:1000px;margin:0 auto;padding:30px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.cta{display:inline-block;background:#fff;color:#0c4a6e;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px}
+button{background:#0284c7;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-weight:700;cursor:pointer}
+input,select,textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;margin:6px 0;font-family:inherit}
+footer{text-align:center;padding:24px;color:#64748b;font-size:.9em}
+.bar{height:14px;border-radius:7px;background:linear-gradient(90deg,#0ea5e9,#0369a1)}
+</style>
+</head>
+<body>
+<nav style="background:#0c4a6e;padding:12px 20px;display:flex;gap:14px;flex-wrap:wrap;font-family:system-ui,sans-serif">
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praia.digital/">🌊 Praia Digital</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/apps/">Hub</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/hermes-agents/">Hermes Agents</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/area-anfitriao/">Anfitrião</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/simulador-roi/">ROI</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/simulador-credito/">Crédito</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/guia-litoral/">Guia</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/blog-litoral/">Blog</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/calculadoras/">Calculadoras</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/newsletter-litoral/">Newsletter</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/eventos-litoral/">Eventos</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/radar-precos/">Radar</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/concierge-ia/">Concierge IA</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/mapa-investidor/">Mapa</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/checklist-anfitriao/">Checklist</a>
+</nav>
+<div class="hero"><h1>✅ Checklist do Anfitrião</h1><p>Do imóvel vazio à operação profissional de temporada. Seu progresso fica salvo neste navegador.</p>
+<a class="cta" href="https://praiadigital.github.io/area-anfitriao/">🌟 Área do Anfitrião</a></div>
+<div class="container">
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap"><h3 style="margin:0">Progresso: <span id="pct">0%</span></h3><button onclick="resetar()" style="background:#94a3b8">↺ Recomeçar</button></div><div class="bar" id="barra" style="width:0%;margin-top:10px"></div></div>
+<div id="grupos"></div>
+<div class="card"><h3>🚀 Depois do checklist</h3><p>Com tudo pronto, use o <a href="https://praiadigital.github.io/concierge-ia/">Concierge IA</a> para as mensagens aos hóspedes e o <a href="https://praiadigital.github.io/simulador-roi/">Simulador ROI</a> para acompanhar o rendimento.</p></div>
+</div>
+<script>
+const grupos=[
+{titulo:"🏠 Preparar o imóvel",itens:["Vistoria e reparos concluídos","Enxoval completo (cama, mesa e banho)","Utensílios de cozinha","Wi-Fi instalado e testado","Fotos profissionais tiradas"]},
+{titulo:"📢 Anúncio e canais",itens:["Anúncio no Airbnb publicado","Anúncio no Booking publicado","Preços por temporada definidos","Calendário sincronizado","Descrição otimizada para SEO"]},
+{titulo:"🔑 Operação",itens:["Cofre de chaves ou fechadura digital","Faxineira/limpeza agendada","Mensagens automáticas configuradas","Contrato e regras da casa prontos","Contatos de emergência listados"]},
+{titulo:"📈 Gestão",itens:["Planilha ou sistema de reservas","Meta de ocupação definida","Processo de avaliações ativo","Reserva para manutenção separada"]}];
+const KEY='checklist-anfitriao-v1';
+let estado=JSON.parse(localStorage.getItem(KEY)||'{}');
+function salvar(){localStorage.setItem(KEY,JSON.stringify(estado));atualizar();}
+function atualizar(){
+const total=grupos.reduce((s,g)=>s+g.itens.length,0);
+const feito=Object.values(estado).filter(Boolean).length;
+const pct=Math.round(feito/total*100);
+document.getElementById('pct').textContent=pct+'%';
+document.getElementById('barra').style.width=pct+'%';}
+function resetar(){estado={};salvar();render();}
+function render(){
+document.getElementById('grupos').innerHTML=grupos.map((g,gi)=>`<div class="card"><h3>${g.titulo}</h3>${g.itens.map((it,ii)=>{const id=gi+'_'+ii;return `<label style="display:block;padding:6px 0;cursor:pointer"><input type="checkbox" style="width:auto;margin-right:8px" ${estado[id]?'checked':''} onchange="estado['${id}']=this.checked;salvar()"> <span style="${estado[id]?'text-decoration:line-through;color:#94a3b8':''}">${it}</span></label>`}).join('')}</div>`).join('');
+atualizar();}
+render();
+</script>
+<footer>© Praia Digital — 2026 — Satélite da rede <a href="https://praia.digital">praia.digital</a> · <a href="https://praiadigital.github.io/apps/">Ver todos os apps</a></footer>
+</body>
+</html>
